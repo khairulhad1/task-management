@@ -1,0 +1,66 @@
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+.bg-taskia-background-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 240 246 / var(--tw-bg-opacity));
+}
+.text-taskia-black {
+  --tw-text-opacity: 1;
+  color: rgb(10 6 30 / var(--tw-text-opacity));
+}
+
+.text-taskia-green {
+  --tw-text-opacity: 1;
+  color: rgb(0 138 62 / var(--tw-text-opacity));
+}
+
+.text-taskia-grey {
+  --tw-text-opacity: 1;
+  color: rgb(164 167 178 / var(--tw-text-opacity));
+}
+
+.text-taskia-red {
+  --tw-text-opacity: 1;
+  color: rgb(255 85 85 / var(--tw-text-opacity));
+}
+
+.bg-taskia-background-grey {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 240 246 / var(--tw-bg-opacity));
+}
+
+.bg-taskia-light-orange {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 216 141 / var(--tw-bg-opacity));
+}
+
+.group:has(:checked) .group-has-\[\:checked\]\:ring-taskia-purple {
+  --tw-ring-opacity: 1;
+}
+.has-\[\:invalid\]\:ring-taskia-red:has(:invalid) {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(255 85 85 / var(--tw-ring-opacity));
+}
+
+.focus-within\:ring-taskia-purple:focus-within {
+  --tw-ring-opacity: 1;
+  --tw-ring-color: rgb(111 79 255 / var(--tw-ring-opacity));
+}
+.invalid\:text-taskia-grey:invalid {
+  --tw-text-opacity: 1;
+  color: rgb(164 167 178 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-taskia-grey::-moz-placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(164 167 178 / var(--tw-text-opacity));
+}
+
+.placeholder\:text-taskia-grey::placeholder {
+  --tw-text-opacity: 1;
+  color: rgb(164 167 178 / var(--tw-text-opacity));
+}

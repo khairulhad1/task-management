@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="css/output.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
 </head>
@@ -12,7 +12,7 @@
 <body class="text-taskia-black font-poppins">
     <section id="Dashboard" class="flex">
         <div id="Sidebar"
-            class="w-[280px] flex flex-col gap-[30px] p-[30px] shrink-0 h-screen overflow-y-scroll no-scrollbar">
+            class="w-[280px] hidden  md:flex flex-col gap-[30px] p-[30px] shrink-0 h-screen  no-scrollbar">
             <div class="flex justify-center">
                 <img src="img/logo.svg" alt="logo">
             </div>
@@ -81,10 +81,10 @@
             </div>
         </div>
         <div id="Content"
-            class="flex flex-col bg-taskia-background-grey rounded-l-[60px] w-full h-screen overflow-y-scroll p-[50px] gap-[30px]">
+            class="flex flex-col bg-taskia-background-grey md:rounded-l-[60px] w-full h-screen overflow-y-scroll p-[30px] md:p-[50px] gap-[30px]">
             <div class="dashboard-nav bg-white flex justify-between items-center w-full  p-4 rounded-[18px]">
                 <div
-                    class="dashboard-search flex items-center p-[12px_20px] rounded-full border border-taskia-background-grey w-[400px] h-12 focus-within:ring-2 focus-within:ring-taskia-purple">
+                    class="dashboard-search hidden md:flex items-center p-[12px_20px] rounded-full border border-taskia-background-grey w-[400px] h-12 focus-within:ring-2 focus-within:ring-taskia-purple">
                     <input type="text"
                         class="font-semibold placeholder:text-taskia-grey placeholder:font-normal focus:outline-none w-full"
                         placeholder="Search by report name..." name="name" required>
@@ -106,8 +106,8 @@
                     <div class="flex h-12 border-x border-[0.5px] border-taskia-background-grey"></div>
                     <div class="flex gap-3 items-center">
                         <div class="*:text-right flex flex-col">
-                            <p class="text-taskia-grey text-sm w-full">Howdy,</span>
-                            <p class="font-bold">Jannellia</p>
+                            <p class="text-taskia-grey text-xs w-full">Hello,</span>
+                                <p id="usernameText" class="font-bold">Jannellia</p>
                         </div>
                         <div class="w-12 h-12 rounded-full overflow-hidden">
                             <img src="img/photo.png" class="object-cover h-full w-full" alt="photo">
@@ -116,14 +116,16 @@
                 </div>
             </div>
             <div class="flex flex-col gap-[30px]">
-                <div class="content-header flex justify-between items-center">
+                <div class="content-header flex justify-center md:justify-between items-center">
                     <div>
-                        <h1 class="font-extrabold text-[30px] leading-[45px]">Add New Task</h1>
-                        <p class="leading-[21px] text-sm">Set the goals to grow your company</p>
+                        <h1 class="font-extrabold text-center md:text-start flex justify-center md:justify-start items-center text-[30px] leading-[45px]">Add New Task</h1>
+                        <p class="leading-[21px] text-sm  md:w-full text-center md:text-start flex justify-center items-center" >Set the goals to grow your company</p>
                     </div>
                 </div>
+                
                 <form id="taskForm" class="group/form flex w-fit shrink-0 gap-[30px]">
-                    <div class="flex flex-col gap-5 p-5 bg-white rounded-[30px] w-[500px] shrink-0 h-fit">
+                   
+                    <div class="flex flex-col gap-5 p-4 md:p-5 bg-white rounded-[30px] w-full md:w-[500px] shrink-0 h-fit">
                         <div class="group/taskname">
                             <label for="taskname" class="font-semibold">Task Name</label>
                             <div
@@ -153,73 +155,89 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="my-4 md:hidden">
+                            <a id="btnAddToproject" class="px-3 py-3 cursor-pointer md:px-4 md:py-4 text-white font-medium md:font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full  border border-taskia-background-grey whitespace-nowrap" onclick="Open(event)">Add Task</a>
+                        </div>
                         <button
                             class="flex gap-[10px] justify-center items-center text-white p-[12px_16px] h-12 font-semibold bg-gradient-to-b from-[#977FFF] to-[#6F4FFF] rounded-full w-full border border-taskia-background-grey">Save
                             New Task</button>
                     </div>
-                    <div class="flex flex-col gap-5 p-5 bg-white rounded-[30px] w-[300px] h-fit shrink-0">
-                        <p class="font-bold text-lg leading-[27px]">Add to Project</p>
-                        <label for="umbrella" class="group relative">
+                    <!-- baru -->
+                    <div class="addToProjectContent md:relative md:top-auto md:left-auto absolute top-64 left-[-300px] flex flex-col gap-5 p-5 bg-white rounded-[30px] w-[300px] h-fit shrink-0">
+                    <p class="font-bold text-lg leading-[27px]">Add to Project</p>
+                    <label for="umbrella" class="group relative">
+                        <div
+                            class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
                             <div
-                                class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
-                                <div
-                                    class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#CABDFF] rounded-full">
-                                    <img src="img/icons/code.svg" alt="icon">
-                                </div>
-                                <div class="flex flex-col justify-center">
-                                    <p class="font-bold text-lg leading-[27px]">Umbrella</p>
-                                    <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
-                                </div>
-                                <div
-                                    class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
-                                    <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
-                                </div>
+                                class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#CABDFF] rounded-full">
+                                <img src="img/icons/code.svg" alt="icon">
                             </div>
-                            <input id="umbrella" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10">
-                        </label>
-                        <label for="sinaria" class="group relative">
+                            <div class="flex flex-col justify-center">
+                                <p class="font-bold text-lg leading-[27px]">Umbrella</p>
+                                <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
+                            </div>
                             <div
-                                class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
-                                <div
-                                    class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#BDEBFF] rounded-full">
-                                    <img src="img/icons/ghost.svg" alt="icon">
-                                </div>
-                                <div class="flex flex-col justify-center">
-                                    <p class="font-bold text-lg leading-[27px]">Sinaria</p>
-                                    <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
-                                </div>
-                                <div
-                                    class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
-                                    <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
-                                </div>
+                                class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
+                                <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
                             </div>
-                            <input id="sinaria" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10"
-                                checked>
-                        </label>
-                        <label for="jupyter" class="group relative">
+                        </div>
+                        <input id="umbrella" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10">
+                    </label>
+                    <label for="sinaria" class="group relative">
+                        <div
+                            class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
                             <div
-                                class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
-                                <div
-                                    class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#FFD88D] rounded-full">
-                                    <img src="img/icons/bank.svg" alt="icon">
-                                </div>
-                                <div class="flex flex-col justify-center">
-                                    <p class="font-bold text-lg leading-[27px]">Jupyter</p>
-                                    <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
-                                </div>
-                                <div
-                                    class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
-                                    <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
-                                </div>
+                                class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#BDEBFF] rounded-full">
+                                <img src="img/icons/ghost.svg" alt="icon">
                             </div>
-                            <input id="jupyter" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10">
-                        </label>
+                            <div class="flex flex-col justify-center">
+                                <p class="font-bold text-lg leading-[27px]">Sinaria</p>
+                                <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
+                            </div>
+                            <div
+                                class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
+                                <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
+                            </div>
+                        </div>
+                        <input id="sinaria" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10"
+                            checked>
+                    </label>
+                    <label for="jupyter" class="group relative">
+                        <div
+                            class="flex items-center gap-3 p-4 border border-taskia-background-grey rounded-2xl group-has-[:checked]:ring-[3px] group-has-[:checked]:ring-taskia-purple">
+                            <div
+                                class="w-[50px] h-[50px] flex shrink-0 items-center justify-center bg-[#FFD88D] rounded-full">
+                                <img src="img/icons/bank.svg" alt="icon">
+                            </div>
+                            <div class="flex flex-col justify-center">
+                                <p class="font-bold text-lg leading-[27px]">Jupyter</p>
+                                <p class="text-sm leading-[21px] text-taskia-grey">183,049 tasks</p>
+                            </div>
+                            <div
+                                class="w-6 h-6 hidden group-has-[:checked]:flex items-center justify-center ml-auto">
+                                <img src="img/icons/tick-circle.svg" class="w-full" alt="icon">
+                            </div>
+                        </div>
+                        <input id="jupyter" name="Projects" type="radio" class="absolute bottom-0 left-1/2 -z-10">
+                    </label>
                     </div>
+                    <input type="hidden" id="selectedImageSrc" name="selectedImageSrc">
+                    <!-- lamaa -->
+
+                
                 </form>
             </div>
         </div>
     </section>
+     <script>
+      
 
+
+     </script>
+    <script src="../src/js/task.js"></script>
+    <script src="../src/js/addTask.js"></script>
+    <script src="../src/js/updateUsername.js"></script>
+  
 </body>
 
 </html>
