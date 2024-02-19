@@ -12,5 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
     result === true
       ? (window.location.href = "../public/signin.html")
       : alert("Gagal menyimpan pengguna. Silakan coba lagi.");
+    console.log(window.location.href);
   });
 });
